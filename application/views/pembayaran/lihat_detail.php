@@ -1,0 +1,323 @@
+<!-- ================================================ -->
+
+<!-- ================================================    
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Toko ABC Matang Glumpang Dua</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="<?= base_url() ?>assets/img/logo-.ico" rel="icon">
+    <link href="<?= base_url() ?>assets/img/logo-" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="<?= base_url() ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="<?= base_url() ?>assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="<?= base_url() ?>assets/css/style.css" rel="stylesheet">
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Updated: Mar 09 2023 with Bootstrap v5.2.3
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+
+        <div class="d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center">
+                <span class="d-none d-lg-block">Toko ABC</span>
+            </a>
+            <i class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+
+        <div class="search-bar">
+            <form class="search-form d-flex align-items-center" method="POST" action="#">
+                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+            </form>
+        </div><!-- End Search Bar -->
+
+        <?php
+        echo form_open('pembayaran/detail');
+        ?>
+        <input type="hidden" value="<?php echo $rec_pembayaran['NB'] ?>" name="NB">
+
+    </header><!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+    <aside id="sidebar" class="sidebar">
+
+        <ul class="sidebar-nav" id="sidebar-nav">
+
+            <li class="nav-item">
+                <a class="nav-link " href="<?= base_url() ?>">
+                    <i class="bi bi-grid"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-menu-button-wide"></i><span>INPUT</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+
+                        <?php echo anchor('uang_muka', 'Uang Muka'); ?>
+
+                    </li>
+                    <li>
+                        <?php echo anchor('lama_angsuran', 'Lama Angsuran'); ?>
+                    </li>
+                    <li>
+                        <?php echo anchor('uang_angsuran', 'Uang Angsuran'); ?>
+                    </li>
+                    <li>
+                        <?php echo anchor('kreditur', 'Kreditur'); ?>
+                    </li>
+                    <li>
+                        <?php echo anchor('pembayaran', 'Pembayaran'); ?>
+                    </li>
+                    <li>
+                        <?php echo anchor('elektronik', 'Elektronik'); ?>
+                    </li>
+                    <li>
+                        <?php echo anchor('pegawai', 'Pegawai'); ?>
+                    </li>
+
+                </ul>
+            </li><!-- End Components Nav -->
+
+            <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-text"></i><span>INFORMASI</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <?php echo anchor('kreditur/daftar', 'Daftar Kreditur'); ?>
+          </li>
+          <li>
+            <?php echo anchor('kreditur/laporan_kreditur', 'Laporan Kreditur'); ?>
+          </li>
+          <li>
+            <?php echo anchor('pembayaran/rekapitulasi', 'Rekapitulasi Belum/Lunas'); ?>
+          </li>
+          <li>
+            <?php echo anchor('elektronik/daftar', 'Elektronik'); ?>
+          </li>
+
+        </ul>
+      </li><!-- End Forms Nav -->
+            <!-- Brosur  -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo site_url('elektronik/brosur') ?>">
+                    <i class="bi bi-card-heading"></i>
+                    <span>BROSUR</span>
+                </a>
+            </li><!-- End brosur -->
+
+
+
+
+            <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-calendar"></i><span>KREDITUR</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <?php echo anchor('pembayaran/kartu', 'Kartu Bayar Angsuran'); ?>
+          </li>
+          <li>
+            <?php echo anchor('kreditur/detail', 'Kartu Kreditur'); ?>
+          </li>
+        </ul>
+
+                <!-- ================================================ -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?php echo site_url('auth/logout') ?>">
+                    <i class="bi bi-box-arrow-in-left"></i>
+                    <span>Logout</span>
+                </a>
+
+            </li><!-- End Login Page Nav -->
+
+
+
+    </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h2 class="text-center fw-bold">#KARTU PEMBAYARAN</h2>
+
+            <div class="float-end d-flex flex-row">
+
+                <button class="btn btn-danger bi bi-file-earmark-pdf me-3">
+                    <?php echo anchor('pembayaran/pdf', 'Pdf', array('class' => 'mb-3 text-light btn-sm')); ?>
+                </button>
+                <button class="btn btn-dark bi bi-printer me-3" onclick="window.print();">
+                    <?php echo anchor('pembayaran', 'Print', array('class' => 'text-light btn-sm')); ?>
+                </button>
+                <button class="btn btn-success bi bi-file-earmark-excel me-3">
+                    <?php echo anchor('pembayaran/excel', 'Excel', array('class' => 'text-light btn-sm')); ?>
+                </button>
+                <button class="btn btn-primary bi bi-file-earmark-word me-3">
+                    <?php echo anchor('pembayaran/word', 'Word', array('class' => 'text-light btn-sm')); ?>
+                </button>
+            </div>
+
+            <h1>Laporan Pembayaran</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="<?php echo base_url() ?>">Home</a></li>
+                    <li class="breadcrumb-item active">Dashboard</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+            <div class="row">
+
+                <!-- Left side columns -->
+                <form>
+                    <?php
+                    echo form_open('pembayaran/detail');
+                    ?>
+                    <input type="hidden" value="<?php echo $rec_pembayaran['NB'] ?>" name="id">
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Nomor Pembayaran</label>
+                        <div class="col-sm-4">
+                            <input type="text" name="NB" class="form-control" value="<?php echo $rec_pembayaran['NB'] ?>">
+
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">TanggaL</label>
+                        <div class="col-sm-4">
+                            <input type="date" name="TBTP" class="form-control" value="<?php echo $rec_pembayaran['TBTP'] ?>">
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class=" col-sm-2 col-form-label">Jumlah</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="JMA" value="<?php echo $rec_pembayaran['JMA'] ?>">
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Angsuran Ke</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="AA" value="<?php echo $rec_pembayaran['AA'] ?>">
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Nama Kreditur</label>
+                        <div class="col-sm-4">
+                            <select name="NK" class="form-control">
+                                <?php foreach ($rec_kreditur->result() as $rp) {
+                                ?>
+                                    <option <?php if ($rec_pembayaran['NK'] == $rp->NK) {
+                                                echo 'selected';
+                                            } ?> value="<?php echo $rp->NK ?>"><?php echo $rp->NMK; ?></option>;
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Kode Pegawai</label>
+                        <div class="col-sm-4">
+                            <select name="NK" class="form-control">
+                                <?php foreach ($rec_pegawai->result() as $rp) {
+                                ?>
+                                    <option <?php if ($rec_pembayaran['KDP'] == $rp->KDP) {
+                                                echo 'selected';
+                                            } ?> value="<?php echo $rp->KDP ?>"><?php echo $rp->KDP; ?></option>;
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mb-3">
+                        <label for="inputText" class="col-sm-2 col-form-label">Nomor Ambil</label>
+                        <div class="col-sm-4">
+                            <select name="NAM" class="form-control">
+                                <?php foreach ($rec_pengambilan->result() as $rp) {
+                                ?>
+                                    <option <?php if ($rec_pembayaran['NAM'] == $rp->NAM) {
+                                                echo 'selected';
+                                            } ?> value="<?php echo $rp->NAM ?>"><?php echo $rp->NAM; ?></option>;
+                                <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="col-1 offset-3 btn btn-primary" name="submit">Simpan</button>
+                </form>
+                <!-- End Default Table Example -->
+
+                <div class="row mt-5">
+                    <?php echo anchor('pembayaran', '<i class="array(btn btn-primary bi bi-arrow-left-square-fill fs-3"></i>') ?>
+                </div>
+
+            </div><!-- End Right side columns -->
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="<?= base_url() ?>assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/echarts/echarts.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/quill/quill.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="<?= base_url() ?>assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="<?= base_url() ?>assets/js/main.js"></script>
+
+</body>
+
+</html>
